@@ -1,26 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="min-h-screen flex flex-col bg-black text-white">
+    <HeaderPage />
+
+    <main class="flex-1 container mx-auto px-4 py-6">
+      <router-view />
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-sm text-center p-4">
+      © 2025 QuizQuest. All rights reserved.
+    </footer>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+import HeaderPage from '@/components/HeaderPage.vue'
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
