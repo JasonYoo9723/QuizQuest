@@ -1,3 +1,4 @@
+<!-- src\views\SolvePage.vue -->
 <template>
   <div class="solve-page">
     <h2 class="page-title">📝 문제풀기</h2>

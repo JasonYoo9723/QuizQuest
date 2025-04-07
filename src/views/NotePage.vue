@@ -1,3 +1,4 @@
+<!-- src\views\NotePage.vue -->
 <template>
   <div class="note-page">
     <h2 class="page-title">📌 오답노트</h2>

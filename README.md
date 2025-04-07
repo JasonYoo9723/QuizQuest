@@ -1,5 +1,11 @@
 # quizquest
 
+# 배포스크립트
+```
+npm run build
+npm run deploy
+```
+
 ## Project setup
 ```
 yarn install

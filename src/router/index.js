@@ -1,3 +1,4 @@
+// src\router\index.js
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LearnPage from '@/views/LearnPage.vue'
 import SolvePage from '@/views/SolvePage.vue'
@@ -9,7 +10,7 @@ const routes = [
   { path: '/learn', component: LearnPage },
   { path: '/solve', component: SolvePage },
   { path: '/note', component: NotePage },
-  { path: '/', redirect: '/learn' } // 기본 경로 설정
+  { path: '/', redirect: '/dashboard' } // 기본 경로 설정
 ]
 
 const router = createRouter({
