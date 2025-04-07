@@ -2,54 +2,54 @@
   <header class="bg-white shadow-sm px-4 py-2 sticky top-0 z-50">
     <div class="container mx-auto max-w-7xl flex items-center justify-between">
 
-      <!-- 로고 + 자격증 선택 -->
-      <div class="flex items-center gap-4">
-      <!-- 로고 -->
-      <RouterLink to="/" class="text-2xl font-bold flex items-center">
-        <span class="text-red-600">Q</span><span class="text-black">uiz</span><span class="text-red-600">Q</span><span class="text-black">uest</span>
-      </RouterLink>
-
-      <!-- 구분선 -->
-      <div class="w-px h-6 bg-gray-300 mx-2"></div>
-
-      <!-- 자격증 선택 -->
+      <!-- 왼쪽: 로고 + 자격증 선택 -->
       <div class="flex items-center gap-2">
+        <!-- 로고 -->
+        <RouterLink to="/" class="text-2xl font-bold flex items-center whitespace-nowrap">
+          <span class="text-red-600">Q</span><span class="text-black">uiz</span>
+          <span class="text-red-600">Q</span><span class="text-black">uest</span>
+        </RouterLink>
+
+        <!-- 구분선 -->
+        <div class="w-px h-6 bg-gray-300 mx-1"></div>
+
+        <!-- 자격증 선택 -->
         <div id="cert-dropdown" class="relative">
           <span
             @click="toggleDropdown"
-            class="cursor-pointer text-xs border px-2 py-1 rounded hover:bg-gray-100 text-gray-800 w-36 inline-block text-center"
+            class="cursor-pointer text-xs border px-2 py-1 rounded hover:bg-gray-100 text-gray-800 w-40 inline-flex justify-between items-center"
           >
-            {{ certStore.selectedCert.name }} ▼
+            {{ certStore.selectedCert.name }}
+            <svg class="w-4 h-4 ml-1 text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
           </span>
 
           <!-- 드롭다운 -->
           <ul
             v-if="showDropdown"
-            class="absolute bg-white border rounded shadow-md mt-1 py-1 w-48 z-50"
+            class="absolute bg-white border rounded shadow-md mt-1 py-1 w-40 z-50"
           >
             <li v-for="(cert, index) in certStore.certifications" :key="index">
               <a
                 href="#"
                 @click.prevent="selectCert(cert)"
-                class="block px-4 py-2 hover:bg-gray-100 text-gray-800"
+                class="block px-4 py-2 hover:bg-gray-100 text-gray-800 text-sm"
               >
                 {{ cert.name }}
               </a>
             </li>
           </ul>
         </div>
-
-        <!-- 구분선 (햄버거 버튼과의 구분) -->
-        <div class="h-6 w-px bg-gray-300 mx-2"></div>
       </div>
-    </div>
 
-      <!-- 모바일 햄버거 버튼 -->
-      <button @click="toggleMenu" class="md:hidden text-2xl text-gray-800 focus:outline-none">
+      <!-- 햄버거 메뉴 버튼 -->
+      <button @click="toggleMenu" class="md:hidden text-2xl text-gray-800 focus:outline-none ml-2">
         ☰
       </button>
 
-      <!-- 네비게이션 -->
+      <!-- 데스크탑 네비게이션 -->
       <nav class="hidden md:flex gap-6 text-sm text-gray-700">
         <RouterLink to="/learn" class="hover:underline">학습 도구</RouterLink>
         <RouterLink to="/solve" class="hover:underline">문제풀이</RouterLink>
@@ -133,6 +133,7 @@ function selectCert(cert) {
   closeMenu()
 }
 
+// 외부 클릭 감지 → 드롭다운 닫기
 function handleClickOutside(event) {
   const dropdown = document.getElementById('cert-dropdown')
   if (dropdown && !dropdown.contains(event.target)) {
