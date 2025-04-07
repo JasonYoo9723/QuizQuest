@@ -72,24 +72,6 @@
         <RouterLink to="/note" @click="closeMenu" class="hover:underline">오답노트</RouterLink>
         <RouterLink to="/dashboard" @click="closeMenu" class="hover:underline">대시보드</RouterLink>
 
-        <!-- 자격증 선택 (모바일) -->
-        <div>
-          <button @click="toggleMobileDropdown" class="text-left w-full hover:underline mt-2 text-gray-800">
-            자격증 선택 ▼
-          </button>
-          <div v-if="mobileDropdown" class="pl-4 mt-1">
-            <a
-              v-for="(cert, index) in certStore.certifications"
-              :key="index"
-              href="#"
-              @click.prevent="selectCert(cert)"
-              class="block py-1 hover:underline text-gray-800"
-            >
-              {{ cert.name }}
-            </a>
-          </div>
-        </div>
-
         <div class="flex gap-3 mt-2">
           <button class="text-gray-600 hover:text-black">+ 만들기</button>
           <button class="bg-red-600 text-white px-4 py-1 rounded-full hover:bg-red-700">로그인</button>
@@ -121,10 +103,6 @@ function closeMenu() {
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
-}
-
-function toggleMobileDropdown() {
-  mobileDropdown.value = !mobileDropdown.value
 }
 
 function selectCert(cert) {
